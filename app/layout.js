@@ -1,11 +1,15 @@
 import "./globals.css";
-import { Tiro_Devanagari_Hindi, Mukta } from "next/font/google";
+import { Fraunces, Noto_Serif_Devanagari, Plus_Jakarta_Sans, Hind } from "next/font/google";
 import { LangProvider } from "@/components/LangProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const display = Tiro_Devanagari_Hindi({ weight: "400", subsets: ["devanagari", "latin"], variable: "--font-display" });
-const body = Mukta({ weight: ["400", "600", "700"], subsets: ["devanagari", "latin"], variable: "--font-body" });
+// Headings: Fraunces for English, Noto Serif Devanagari for Hindi (Fraunces has no Devanagari, so the browser falls through to it).
+const display = Fraunces({ subsets: ["latin"], variable: "--font-display", display: "swap" });
+const displayHi = Noto_Serif_Devanagari({ subsets: ["devanagari"], variable: "--font-display-hi", display: "swap" });
+// Body text: Plus Jakarta Sans for English, Hind for Hindi.
+const body = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const bodyHi = Hind({ weight: ["400", "500", "600", "700"], subsets: ["devanagari"], variable: "--font-body-hi", display: "swap" });
 
 export const metadata = {
   title: "BOLI · बोली",
@@ -17,8 +21,8 @@ export const viewport = { themeColor: "#0E1330", colorScheme: "dark" };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>
+    <html lang="en" className={`${display.variable} ${displayHi.variable} ${body.variable} ${bodyHi.variable}`}>
+      <body className="antialiased">
         <LangProvider>
           <Header />
           <main className="mx-auto max-w-5xl px-5 py-8">{children}</main>

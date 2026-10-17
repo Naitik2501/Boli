@@ -14,9 +14,9 @@ module.exports = {
         cobaltDeep: "#2F52CC",
         marigold: "#F2A93B",
       },
-      fontFamily: {
-        display: ["var(--font-display)", "serif"],
-        body: ["var(--font-body)", "sans-serif"],
+        fontFamily: {
+          display: ["var(--font-display)", "var(--font-display-hi)", "serif"],
+          body: ["var(--font-body)", "var(--font-body-hi)", "sans-serif"],
       },
       keyframes: {
         fadeUp: {
