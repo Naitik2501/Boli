@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles live here. Colours and fonts are defined in tailwind.config.js. */
+html { scroll-behavior: smooth; }
+body {
+  background: #0E1330;
+  color: #EAF0FF;
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.5;
+}
+
+::selection { background: #F2A93B; color: #0E1330; }
+
+:focus-visible { outline: 3px solid #F2A93B; outline-offset: 2px; }
+
+/* Blue-pottery flower motif, used once behind the home hero and faded out downwards. */
+.motif {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%232B3780' stroke-width='1.5'%3E%3Ccircle cx='28' cy='28' r='3'/%3E%3Cpath d='M28 6c5 6 5 10 0 16-5-6-5-10 0-16Zm0 28c5 6 5 10 0 16-5-6-5-10 0-16ZM6 28c6-5 10-5 16 0-6 5-10 5-16 0Zm28 0c6-5 10-5 16 0-6 5-10 5-16 0Z'/%3E%3C/g%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(to bottom, #000 25%, transparent);
+  mask-image: linear-gradient(to bottom, #000 25%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
